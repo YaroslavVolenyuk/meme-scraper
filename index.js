@@ -3,8 +3,9 @@ import https from 'node:https';
 import path from 'node:path';
 import axios from 'axios';
 import cheerio from 'cheerio';
+import Jimp from 'jimp';
 
-const url = 'https://' + process.argv[2];
+const url = 'https://memegen-link-examples-upleveled.netlify.app/';
 
 // DOWNLOAD images and save them to the folder
 function saveToDisk(imageUrlFromArray, indexOfImages) {
@@ -43,3 +44,40 @@ axios
   .catch((error) => {
     console.log(error);
   });
+
+// bender meme: https://make-memes.com/images/memes/bender.jpg
+
+/*
+
+
+const benderMemne = async function () {
+  const image = await Jimp.read(
+    'https://make-memes.com/images/memes/bender.jpg',
+  );
+  const font = await Jimp.loadFont(Jimp.FONT_SANS_10_WHITE);
+  image.print(font, 0, 0, 'Karl');
+  image.write('memes/');
+};
+
+await benderMemne();
+
+
+
+const fileName = 'bender.jpg';
+const imageCaption = 'Hello Karl';
+let loadedImage;
+
+Jimp.read(fileName)
+  .then(function (image) {
+    loadedImage = image;
+    return Jimp.loadFont(Jimp.FONT_SANS_64_WHITE);
+  })
+  .then(function (font) {
+    loadedImage.print(font, 10, 10, imageCaption).write(fileName);
+  })
+  .catch(function (err) {
+    console.error(err);
+  });
+
+
+  */

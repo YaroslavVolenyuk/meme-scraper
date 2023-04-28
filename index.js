@@ -3,7 +3,8 @@ import https from 'node:https';
 import path from 'node:path';
 import axios from 'axios';
 import cheerio from 'cheerio';
-import Jimp from 'jimp';
+
+// import Jimp from 'jimp';
 
 const url = 'https://memegen-link-examples-upleveled.netlify.app/';
 

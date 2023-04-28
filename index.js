@@ -20,7 +20,7 @@ try {
 function saveToDisk(imageUrlFromArray, indexOfImages) {
   const localPath = fs.createWriteStream(
     path.join(
-      'memes/', // неправильный путь файла
+      'memes', // неправильный путь файла
       indexOfImages.padStart(2, '0') + '.jpg',
     ),
   );
@@ -44,7 +44,7 @@ axios
       .map((i, img) => $(img).attr('src'))
       .get()
       .slice(0, 10);
-    console.log(images);
+    // console.log(images);
 
     for (let i = 0; i <= images.length - 1; i++) {
       saveToDisk(images[i], String(i + 1));

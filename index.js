@@ -7,11 +7,20 @@ import Jimp from 'jimp';
 
 const url = 'https://memegen-link-examples-upleveled.netlify.app/';
 
+// creating folder 'memes'
+try {
+  if (fs.existsSync('memes')) {
+    console.log('directory exist');
+  }
+  fs.mkdirSync('memes');
+} catch (error) {
+  console.log('error occured:', error);
+}
 // DOWNLOAD images and save them to the folder
 function saveToDisk(imageUrlFromArray, indexOfImages) {
   const localPath = fs.createWriteStream(
     path.join(
-      '/Users/yaroslav/projects/meme_scraper/memes/',
+      'memes/', // неправильный путь файла
       indexOfImages.padStart(2, '0') + '.jpg',
     ),
   );
